@@ -18,7 +18,7 @@ class Artists extends Component {
                     <div className="artist-block" key={artist._id}>
                         <img src={apiURL + '/uploads/' + artist.image} alt={artist.artist}/>
                         <div>
-                        <NavLink to="/" className="artist">{artist.artist}</NavLink>
+                        <NavLink to={`/albums/${artist._id}`} className="artist">{artist.artist}</NavLink>
                         </div>
                     </div>
                 ))}

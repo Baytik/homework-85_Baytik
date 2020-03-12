@@ -9,7 +9,14 @@ const TrackSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    album: String
+    counter: {
+        type: Number,
+        required: true
+    },
+    album: {
+        type: String,
+        required: true
+    }
 });
 
 const Track = mongoose.model('Track', TrackSchema);

@@ -8,11 +8,13 @@ import {Provider} from "react-redux";
 import {BrowserRouter} from "react-router-dom";
 import artistReducers from "./store/reducers/artistReducers";
 import albumReducer from "./store/reducers/albumReducers";
+import trackReducer from "./store/reducers/trackReducers";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
     artists: artistReducers,
-    albums: albumReducer
+    albums: albumReducer,
+    tracks: trackReducer
 });
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));

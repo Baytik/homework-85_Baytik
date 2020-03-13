@@ -1,0 +1,21 @@
+.tracks {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.track-block {
+    margin-top: 30px;
+    padding: 10px;
+    background: white;
+    width: 230px;
+    text-align: center;
+}
+.track-block strong {
+    font-size: 20px;
+}
+.track-block h2 {
+    text-transform: capitalize;
+}
+.track-block p {
+    color: darkblue;
+}

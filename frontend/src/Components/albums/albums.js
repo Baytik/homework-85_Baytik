@@ -13,14 +13,13 @@ class Albums extends Component {
     }
 
     render() {
-        console.log(this.props.albums)
         return (
             <div className="albums">
                 {this.props.albums.map(album => (
                     <div className="albums-block" key={album._id}>
                         <img src={apiURL + '/uploads/' + album.image} alt={album._id}/>
                         <div>
-                            <NavLink to="/track/">{album.title}</NavLink>
+                            <NavLink to={`/track/${album._id}`}>{album.title}</NavLink>
                             <p>{album.year}</p>
                         </div>
                     </div>

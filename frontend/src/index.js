@@ -3,27 +3,39 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {applyMiddleware, combineReducers, compose, createStore} from "redux";
-import thunk from "redux-thunk";
+import thunkMiddleware from "redux-thunk";
 import {Provider} from "react-redux";
-import {BrowserRouter} from "react-router-dom";
 import artistReducers from "./store/reducers/artistReducers";
 import albumReducer from "./store/reducers/albumReducers";
 import trackReducer from "./store/reducers/trackReducers";
+import registerReducer from "./store/reducers/registerReducers";
+import {createBrowserHistory} from "history";
+import {connectRouter, routerMiddleware, ConnectedRouter} from "connected-react-router";
+
+const history = createBrowserHistory();
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
+    router: connectRouter(history),
     artists: artistReducers,
     albums: albumReducer,
-    tracks: trackReducer
+    tracks: trackReducer,
+    user: registerReducer
 });
 
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
+const middleware = [
+    thunkMiddleware,
+    routerMiddleware(history)
+];
+
+const enhancers = composeEnhancers(applyMiddleware(...middleware));
+const store = createStore(rootReducer, enhancers);
 
 const app = (
     <Provider store={store}>
-        <BrowserRouter>
+        <ConnectedRouter history={history}>
         <App/>
-        </BrowserRouter>
+        </ConnectedRouter>
     </Provider>
 );
 

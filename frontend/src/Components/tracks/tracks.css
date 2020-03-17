@@ -39,3 +39,8 @@ button {
 .register:hover {
     text-decoration: underline;
 }
+.error {
+    color: brown;
+    font-weight: bold;
+    font-size: 18px;
+}

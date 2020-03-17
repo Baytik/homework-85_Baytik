@@ -15,6 +15,7 @@ export const postRegister = (user) => {
     return async (dispatch) => {
         try {
             await axiosAPI.post('/users', user);
+            dispatch(push('/login'))
         } catch (e) {
             dispatch(errorMessage(e))
         }

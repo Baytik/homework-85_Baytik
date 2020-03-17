@@ -11,6 +11,7 @@ import trackReducer from "./store/reducers/trackReducers";
 import registerReducer from "./store/reducers/registerReducers";
 import {createBrowserHistory} from "history";
 import {connectRouter, routerMiddleware, ConnectedRouter} from "connected-react-router";
+import historyReducer from "./store/reducers/historyReducer";
 
 const history = createBrowserHistory();
 
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
     artists: artistReducers,
     albums: albumReducer,
     tracks: trackReducer,
-    user: registerReducer
+    user: registerReducer,
+    tracksHistories: historyReducer
 });
 
 const middleware = [

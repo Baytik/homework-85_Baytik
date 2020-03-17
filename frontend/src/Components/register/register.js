@@ -21,7 +21,6 @@ class Register extends Component {
             password: this.state.password
         };
         await this.props.postRegister(User);
-        this.props.history.push('/')
     };
 
     render() {
@@ -30,10 +29,10 @@ class Register extends Component {
                 <NavLink to="/">Go Home</NavLink>
                 <form>
                 <div>
-                    <input type="text" placeholder="Create a username" onChange={this.changeInputHandler} name="email"/>
+                    <input type="email" placeholder="Create a username" onChange={this.changeInputHandler} name="email"/>
                 </div>
                 <div>
-                    <input type="text" placeholder="Create a password" onChange={this.changeInputHandler} name="password"/>
+                    <input type="password" placeholder="Create a password" onChange={this.changeInputHandler} name="password"/>
                 </div>
                 <div>
                     <button onClick={this.newUser}>Register</button>

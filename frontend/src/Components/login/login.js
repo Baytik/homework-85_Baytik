@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {NavLink} from "react-router-dom";
 import {connect} from "react-redux";
-import {loginUser} from "../store/actions/registerActions";
+import {loginUser} from "../../store/actions/registerActions";
 
 class Login extends Component {
 

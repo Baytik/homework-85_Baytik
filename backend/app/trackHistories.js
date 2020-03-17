@@ -4,6 +4,18 @@ const User = require('../models/User');
 
 const router = express.Router();
 
+router.get('/', async (req, res) => {
+    const authorization = req.get('Authorization');
+    if (!authorization) {
+        return res.status(401).send({error: 'Unauthorized'})
+    }
+    const user = await User.findOne({token: authorization});
+    console.log(user)
+    const trackHistory = await TrackHistory.find();
+    console.log(trackHistory)
+    res.send(trackHistory)
+});
+
 router.post('/', async (req, res) => {
     const authorization = req.get('Authorization');
     if (!authorization) {

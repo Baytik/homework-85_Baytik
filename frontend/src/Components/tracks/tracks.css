@@ -19,3 +19,23 @@
 .track-block p {
     color: darkblue;
 }
+.login-block input{
+    margin: 10px 0;
+    font-size: 20px;
+    padding: 5px;
+}
+button {
+    font-size: 20px;
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+    padding: 3px 7px;
+}
+.register {
+    color: #ccc;
+    margin-left: 10px;
+    text-decoration: none;
+}
+.register:hover {
+    text-decoration: underline;
+}
